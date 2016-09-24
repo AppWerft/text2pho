@@ -1,0 +1,306 @@
+#TXT2PHO - a TTS front end for the German inventories
+of the MBROLA project.
+
+Version 0.6.1
+
+======================================================================
+
+##LICENSE:
+--------
+
+his program and object code is being provided to "you", the licensee,
+by Thomas Portele, the "author",  under  the following license, which
+applies to any  program, object code or other   work which contains  a
+notice placed  by  the copyright holder saying  it  may be distributed
+under the terms of this license.   The "program", below, refers to any
+such program, object code or work.
+
+By obtaining,  using and/or copying  this program, you  agree that you
+have   read,  understood,  and   will  comply   with  these  terms and
+conditions:
+
+###Terms and conditions for the distribution of the program
+--------------------------------------------------------
+
+This program may not be sold or incorporated into any product which is
+sold without prior permission from the author.
+
+When no  charge is made, this  program  may be copied  and distributed
+freely, provided that   this notice  is  copied  and distributed  with
+it. Each time you redistribute  the program (or any  work based on the
+program), the recipient   automatically receives  a license from   the
+original  licensor to copy or distribute  the program subject to these
+terms and conditions.  You may  not impose any further restrictions on
+the recipients' exercise of   the rights granted  herein. You  are not
+responsible for enforcing compliance by third parties to this License.
+
+If you wish to incorporate the program  into other free programs whose
+distribution conditions are different, write to  the author to ask for
+permission.
+
+If, as   a consequence of a   court judgment  or  allegation of patent
+infringement or  for any other reason  (not limited to patent issues),
+conditions are imposed  on you (whether  by court order,  agreement or
+otherwise) that contradict the conditions of this license, they do not
+excuse   you from the   conditions  of this  license.    If you cannot
+distribute so as to satisfy simultaneously your obligations under this
+license and any other pertinent obligations, then as a consequence you
+may   not distribute the  program at  all.    For example, if a patent
+license would not permit royalty-free redistribution of the program by
+all those who receive copies directly or  indirectly through you, then
+the only way you  could satisfy both it and  this license would be  to
+refrain entirely from distribution of the program.
+
+###Terms and conditions on the use of the program
+----------------------------------------------
+
+Permission  is  granted   to use  this   software  for non-commercial,
+non-military purposes,  with and  only  with  the lexicon and prosody
+files  made available by  the author  from the  HADIFIX for MBROLA
+project www homepage:
+
+         http://www.ikp.uni-bonn.de/~tpo/HADIFIXforMBROLA.html
+
+
+###Disclaimer
+----------
+
+THIS  SOFTWARE CARRIES NO   WARRANTY, EXPRESSED OR IMPLIED.  THE  USER
+ASSUMES ALL RISKS, KNOWN OR UNKNOWN, DIRECT OR INDIRECT, WHICH INVOLVE
+THIS SOFTWARE IN ANY WAY. IN PARTICULAR, THE  AUTHOR DOES NOT TAKE ANY
+COMMITMENT IN VIEW OF ANY POSSIBLE THIRD PARTY RIGHTS.
+
+=====================================================================
+
+##GOAL
+
+This software is made public in order to support the MBROLA project
+with a free German Text-to-Phoneme conversion, which is essentially
+the linguistic and prosodic part of the synthesis system Hadifix
+(http://www.ikp.uni-bonn.de/~tpo/Hadifix.en.html).
+
+Any bugs, mispronunciations and other comments should be emailed
+to Thomas Portele (tpo@ikp.uni-bonn.de). I will supply frequent
+updates of the lexica as bugfixes.
+
+======================================================================
+
+##DISTRIBUTION:
+
+This distribution contains the executables txt2pho and pipefilt,
+two file sets with prosodic information for male and female voices (*.int,
+*.dur, *.prt, *.amp), and the lexica (hadifix.sce, hadifix.scf, hadifix.scr),
+a few demo files (*.txt) and this file.
+
+It requires the MBROLA synthesizer with at least one German database,
+obtainable from
+
+	http://tcts.fpms.ac.be/synthesis
+
+This program is tested only tentatively - it is likely that certain
+phoneme combinations are not supported by the current German voices.
+In this case, let me know, and I will try to fix it.
+
+
+##INSTALLATION AND USAGE:
+
+
+After the extraction of the file txt2pho.tgz a subdirectory
+txt2pho_data with all files necessary to run txt2pho is created.
+It should remain located as a subdirectory to the dircetory of
+the executable (OK, this is not very elegant...).
+
+txt2pho currently supports only one option. If a male voice
+is used, the appropriate command is 'txt2pho m'. Thr program
+reads text from stdin and writes the MBROLA commands to stdout.
+In its current version every NEWLINE is treated as a marker
+for sentence finality. When synthesizing continuous text this
+will lead to unwanted breaks in an utterance. The program
+pipefilt should correct this fault in a very simple fashion:
+it inserts a NEWLINE after every '.:;!?', followed by a whitespace,
+and changes all other NEWLINEs into blanks. There are of course
+much better and application-oriented methods for this.
+
+In its current stage txt2pho does no preprocessing. It does not
+read numbers (if not written out), symbols etc.
+
+German ä can be entered as ä, "a, or ae (but that's not
+unambiguous). TeX notation is safe.
+
+
+
+
+##WHAT DOES IT DO, AND HOW:
+
+
+The conversion from graphemes to phonemes is done using a lexicon
+with more than 50000 entries and flexion tables. The system tries
+to find compound words (which does sometimes leads to interesting
+results). A description of the linguistic processing is given
+in (Portele & Kraemer, 1995 - ftp://ftp.asl1.ikp.uni-bonn.de/pub/
+vm41/tpwolf95.ps.gz - in German). During this process word classes
+are derived which are converted to prominence values (Widera, Portele
+& Wolters, 1997 - not yet on the Internet). These parameters drive
+a prominence-based synthesis system (Portele & Heuft, 1996 -
+ftp://asl1.ikp.uni-bonn.de/pub/vm41/tpspeak2.ps.gz). A decision
+tree (*.prt) converts the prominence values into prosodic parameters
+(Heuft & Portele, 1996 - ftp://asl1.ikp.uni-bonn.de/pub/vm41/bhics962.ps.gz).
+Here, speaker dependent parameters (*.int for f0, *.dur for duration)
+are used.
+
+
+
+##MANIPULATIONS:
+
+Manipulations at the lexicon files are not allowed. Manipulations
+of the decision tree is possible but dangerous. In the files *.dur
+the first parameter denotes the default speaking rate. In the files
+*.int pitch height is controlled, and these numbers can be adapted
+to personal needs.
+
+A number of control sequences can be included (Portele, 1996, -
+ftp://asl1.ikp.uni-bonn.de/pub/vm41/tpdaga962.ps.gz) 
+in the orthographic input when placed between braces. A space
+character may not appear in a command. Commands must be separated
+from other words or commands by a space character.
+Commands contain a keyword followed by a colon and the command
+parameters. Among the commands are 
+
+###Voice 
+
+The command value is the name of the inventory to be used from now
+on. Its files must be in the directory of the current inventory.
+However, this only changes the prosodic output and has no effect
+on the MBROLA synthesizer. Possible names are "male" and "female". 
+
+###Duration 
+
+accepts positive and negative values. The speech rate is changed accordingly. 
+
+Pitch 
+
+accepts positive and negative values in Hz. The average pitch changes accordingly. 
+
+###Pause 
+
+inserts a pause. The command parameter specifies the length in milliseconds. 
+
+###WordProminence 
+
+controls the prominence of the following word and can be set between 0 (not prominent) and 31 (very prominent). 
+
+###WordRhythm 
+
+modifies the rhythm of a word. For each syllable one of the characters _ 
+(not accented), ' (primary accent), ,(secondary accent) must appear in
+the command parameter string. 
+
+###Transcription 
+
+gives the transcription for the following word. Syllable boundaries
+must be indicated by a | and the transcription must be in SAMPA .
+Primary ' and secondary , accent marks can be included after the syllable boundary sign. 
+
+###Accent 
+
+mimics in a very crude way some local varieties of Standard German. Up
+to now, only Rheinisch is a valid parameter. 
+
+###Singing 
+
+allows the synthesis of a song. For every syllable the length and 
+the value of the pertinent note must be specified.
+The length may be one of 4 , 8 , 16 , whereby 16 is the shortest. 
+The value can be one of c , cis , d , es ,
+e , f , fis , g , as , a , b , h . If the value is followed by a
+' it is assumed to be in the next octave.
+Length and value are seperated by a comma, notes for different 
+syllable by a semicolon. A command might
+therefore look like: {Singing:8,f;8,g;4,e}. Multiple singing commands
+can appear in one utterance. 
+
+##SetSingingTempo 
+
+defines the tempo of the song from now on. Valid parameter values are 
+a number for beats per minute or one of the following strings: 
+Largo , Larghetto , Adagio , Andante , Alegretto , Allegro , Presto . 
+
+###SetOctave 
+
+defines the heigth of the singing voice. Valid parameters are C , c , 
+c' , c'' , c''' . 
+
+Examples can be found in the files with the extension .txt in
+the txt2pho_data directory
+
+
+
+##PROBLEMS:
+
+- Because txt2pho was made for a more complex inventory than diphones
+  where every phoneme combination is synthesizable the system
+  might demand combinations not in the inventory. 
+  Currently I have no idea how to solve this. The most
+  straightforward way would be a file containing all
+  impossible combinations. But then I would have to substitute
+  one of the two sounds - but which one, and with what??
+  I hope the next version will contain a solution. 
+
+- Some reductions inherent in the original inventory cannot
+  be synthesized adequately with the diphone databases, and
+  the speech may sometimes sound overaticulated (e.g. non-syllablic
+  vowels in "Bosnien" or syllabic consonants in "haben").
+
+- It is nearly untested :-(
+
+- A few words are wrongly accented 
+
+======================================================================
+
+HISTORY:
+________
+
+22.11.1997
+- French nasal vowels and English /EI/ remapped
+26.11.1997
+- New version of the lexicon 
+
+======================================================================
+
+Acknowledgements:
+
+I got a lot of help from a number of people:
+Barbara Heuft
+Horst Meyer
+Florian H"ofer
+Monika Rauth
+Gerit Sonntag
+J"urgen Kr"amer
+Stefan Breuer
+Felicitas Haas
+Volker Strom
+Karlheiz St"ober
+Anja Elsner
+Wolfgang Hess
+Dieter Stock
+Dietmar Lance
+Bernhard Schroeder
+...
+
+
+and my family (as usual).
+
+Thomas Portele
+Institut f"ur Kommunikationsforschung und Phonetik
+Universit"at Bonn
+Poppelsdorfer Allee 47
+D-53115 Bonn
+Germany
+Tel: (+49)228 735613
+FAX: (+49)228 735639
+email: tpo@ikp.uni-bonn.de
+
+
+
+
+
