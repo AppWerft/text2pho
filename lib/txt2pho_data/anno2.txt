@@ -1,0 +1,10 @@
+Jetzt rede ich normal.
+{Duration:-0.5}
+Jetzt rede ich schnell.
+{Duration:1.5}
+Jetzt rede ich langsam.
+{Duration:-1.0}
+{Pitch:150}
+Jetzt rede ich ziemlich hoch.
+{Pitch:300}
+Jetzt piepse ich.

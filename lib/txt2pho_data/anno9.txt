@@ -1,0 +1,13 @@
+{SetSingingTempo:220}
+{SetOctave:C}
+{Singing:8,a;4,a;4,a;8,as;4,a;8,cis';4,a;3,a;8,as;8,a;2,h;8,d';8,cis';2,cis'}
+Weine nicht wenn der Regen f"allt, da ham damm, da ham damm.
+{Singing:8,a;4,a;4,a;8,as;4,a;8,cis';4,a;3,a;8,as;8,a;2,h;8,d';8,cis';2,cis'}
+Es gibt einen der zu dir h"alt, da ham damm, da ham damm.
+{SetOctave:c}
+{Singing:8,a;4,a;3,a;4,a;8,g;4,f;3,f;8,as;4,as;4,as;8,f;4,as;8,a;8,e;8,f;3,e}
+Marmor Stein und Eisen bricht, aber unsere Lieh hiebe nicht.
+{Singing:8,a;3,a;8,a;3,a;8,as;4,f;4,f;8,as;4,e;8,f;4,as;2,a}
+alles alles geht vorbei, doch wir sind uns treu.
+
+{REM: Bei "vorbei" stimmt das Tempo nicht. weil MBROLA sonst meckert}

@@ -1,0 +1,5 @@
+
+{WordProminence:31}Hinter unserem Garten ist seit gestern eine Baustelle.
+Hinter unserem {WordProminence:31} {Pause:50} Garten ist seit gestern eine Baustelle.
+Hinter unserem Garten ist seit {WordProminence:31} {Pause:50} gestern eine Baustelle.
+Hinter unserem Garten ist seit gestern eine {WordProminence:31} {Pause:50} Baustelle.
