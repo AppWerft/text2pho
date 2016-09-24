@@ -1,0 +1,19 @@
+
+{SetSingingTempo:190}
+{SetOctave:c}
+{Singing:16,d;16,d;8,g;8,g;8,a;8,g;8,f;4,e}
+Bolle reiste jüngst zu Pfingsten
+{Singing:8,e;8,f;8,f;8,e;8,f;4,g}
+nach Pankow war sein Ziel.
+{Singing:16,d;16,d;8,g;8,g;8,a;8,g;8,f;4,e}
+da verlor er seinen Jüngsten
+{Singing:8,e;8,f;8,f;8,e;8,f;4,g}
+ganz plötzlich im Gewühl.
+{Singing:4,b;8,a;8,b;8,a;8,b;8,a;4,a}
+ne volle halbe Stunde
+{Singing:8,a;8,a;8,a;8,b;8,h;4,c'}
+hat er nach ihm gespürt.
+{Singing:16,d;16,d;8,g;8,g;8,a;8,g;8,f;4,e;8,e;8,f;8,f;8,e;8,f;4,g}
+aber dennoch hat sich Bolle ganz köstlich amüsiert,
+{Singing:16,d;16,d;8,g;8,g;8,a;8,g;8,f;4,e;8,e;8,f;8,f;8,e;8,f;4,g}
+aber dennoch hat sich Bolle ganz köstlich amüsiert.

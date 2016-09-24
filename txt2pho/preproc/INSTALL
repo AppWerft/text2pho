@@ -1,0 +1,8 @@
+PREPROC INSTALLATION MANUAL
+
+If you have successfully unzipped the zip archive,
+go to the new directory "preproc",
+you just have to run "make". Make sure that all
+sources are in the subdirectory src, and that
+a subdirectory obj exists.
+

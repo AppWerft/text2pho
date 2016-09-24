@@ -1,0 +1,7 @@
+{Voice:female}
+Hallo, ich heiﬂe {Transcription:'dZi:n|} Jean.
+{Voice:male}
+Hallo, ich heiﬂe {Transcription:'Za~|} Jean.
+{Voice:female}
+Michael Jackson.
+{Transcription:'maI|k@l|} Michael {Transcription:'dZEk|s@n|} Jackson.

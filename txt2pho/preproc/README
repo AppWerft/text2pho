@@ -1,0 +1,96 @@
+PREPROC 0.3.1
+
+(c) Thomas Portele, IKP, University of Bonn, 4.7.2000
+
+--------------------------
+
+LICENSE:
+
+Copyright (C) 1998  Thomas Portele
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Thomas Portele
+tpo@ikp.uni-bonn.de http://www.ikp.uni-bonn.de/~tpo
+IKP Poppelsdorfer Allee 47, D-53115 Bonn Germany
+
+Uwe Reder [ur]
+Uwe.Reder@GMX.net
+
+__________________________
+
+OVERVIEW:
+
+PREPROC was written by Thomas Portele as a flexible text preprocessing tool
+for speech synthesis applications. PREPROC reads input from a text file,
+performs some conversions and writes the result to a text file.
+
+The conversions are done in three steps. In the first step a rule set
+is used to determine whether a conversion should be applied to a token
+(any string between spaces is a token). In the second step, a token
+can be replaced by another token due to an exchange table (this is
+mainly used for abbreviations). In the third step conversion functions
+are applied to tokens marked in the first step as to be processed.
+
+The rule set and the abbreviation list are loaded on run time (and
+can be changed by special tags in the input stream). The
+conversion functions, however, are hard-coded, and new functions
+must be compiled in the program.
+
+PREPROC currently reads from stdin and writes to stdout. Two 
+parameters must appear in a call. The first one is the name
+of the rule set, the second one the name of the abbreviation
+list (if no second parameter is given, no token replacements
+are performed).
+
+_________________________________
+
+FILES:
+
+This distribution contains the source code and the related Makefile.
+The program is compiled by typing "make preproc". Also included
+are the files "Rules.lst" with some preprocessing rules, and
+"Hadifix.abk" with some abbreviations.
+
+--------------------------------------
+
+INSTALLATION AND USAGE:
+
+Please refer to the files INSTALL for installation and MANUAL for usage
+
+--------------------------------------
+
+
+HISTORY:
+
+10.02.1998   0.2   fixed a bug in the input routine
+11.02.1998   0.2.1 fixed bugs in the functions
+12.02.1998   0.2.2 fixed a bug if function returns string with length 0
+13.02.1998   0.2.3 insert a NEWLINE after each .:?!
+14.02.1998   0.2.4 correctet bug with leading blanks, % spaced
+16.02.1998   0.2.5 corrected a subtle bug in keyword search before token
+08.01.1999   0.2.6 included treatment of number mixture
+05.07.1999   0.2.7 fixed a bug in abbreviation routine
+21.02.2000   0.2.8 better treatment of logfile
+04.07.2000   0.2.9 fixed a bug in abbreviation routine
+03.10.2004   0.3   added engine for big numbers, incl. thousands seperated
+                     numbers [ur]
+                   added unit engine [ur]
+                   Rules.lst and Hadifix.abk heavily reworked [ur]
+                   added dash [ur]
+                   more minor addons [ur]
+08.10.2004   0.3.1 added fractions [ur]
+		   added ratio [ur]
+		   added interpretation of subsequent years [ur]
